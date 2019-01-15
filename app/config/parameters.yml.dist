@@ -1,0 +1,26 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host: 127.0.0.1
+    database_port: 5432
+    database_name: symfony
+    database_user: book
+    database_password: book
+
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: test@test.test
+    mailer_password: test
+    files_dir: /home/travis/build/altqq885/lib/web/upload/
+    api_key: asdasd
+    locale: en
+
+    cache_type: memcache
+    cache_host: localhost
+    cache_port: 11211
+    cache_instance_class: Memcache
+    cache_class: Doctrine\Common\Cache\MemcacheCache
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: ThisTokenIsNotSoSecretChangeIt

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ 'main.title'|trans({}, 'messages')}}</h1>
+    {% if is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('add_book') }}">{{ 'main.create'|trans({}, 'messages')}}</a>
+    {% endif %}
+    <table>
+        <thead>
+        <tr>
+            <th>{{ 'main.author'|trans({}, 'messages')}}</th>
+            <th>{{ 'main.name'|trans({}, 'messages')}}</th>
+            <th>{{ 'main.date'|trans({}, 'messages')}}</th>
+            <th>{{ 'main.file'|trans({}, 'messages')}}</th>
+            <th>{{ 'main.image'|trans({}, 'messages')}}</th>
+            {% if is_granted("ROLE_ADMIN") %}
+                <th>{{ 'main.edit'|trans({}, 'messages')}}</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.author }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.date|date("d-m-Y") }}</td>
+                {% if book.downloadable %}
+                    <td><a href="{{ asset('/upload/' ~book.file) }}">{{ 'main.download'|trans({}, 'messages')}}</a></td>
+                {% else %}
+                    <td>{{ 'main.not_available'|trans({}, 'messages')}}</td>
+                {% endif %}
+                <td>
+                    <img {{ asset('/upload/' ~book.image)|resizeImage }}>
+                </td>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <td><a href="{{ path('edit_book', {'id' : book.id}) }}">{{ 'main.edit'|trans({}, 'messages')}}</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

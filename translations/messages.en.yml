@@ -1,0 +1,17 @@
+main:
+  author: Author
+  name: Name
+  date: Date
+  image: Image
+  file: PDF
+  edit: Edit
+  create: Create a new book
+  title: Books list
+  download: Download
+  not_available: Not available for download
+
+edit:
+  button_message: Edit Book
+
+add:
+  button_message: Add Book

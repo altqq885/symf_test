@@ -1,0 +1,17 @@
+main:
+  author: Автор
+  name: Имя
+  date: Дата
+  image: Изображение
+  file: Файл
+  edit: Редактировать
+  create: Добавить новую книгу
+  title: Список книг
+  download: Скачать
+  not_available: Не доступна для скачивания
+
+edit:
+  button_message: Редактировать книгу
+
+add:
+  button_message: Добавить книгу

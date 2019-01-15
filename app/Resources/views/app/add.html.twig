@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" class="btn" value="{{ 'add.button_message'|trans({}, 'messages')}}"/>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
