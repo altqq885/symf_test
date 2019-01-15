@@ -12,7 +12,7 @@ parameters:
     mailer_host: 127.0.0.1
     mailer_user: test@test.test
     mailer_password: test
-    files_dir: /home/travis/build/altqq885/lib/web/upload/
+    files_dir: /home/travis/build/altqq885/symf_test/web/upload/
     api_key: asdasd
     locale: en
 
