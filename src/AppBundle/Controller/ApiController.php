@@ -20,6 +20,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Validation;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 /**
  * @Route("/api/v1")
@@ -35,6 +36,24 @@ class ApiController extends Controller
 
     /**
      * @Route("/books", methods={"GET"})
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="show list of items",
+     *  statusCodes={
+     *      200="Returned when successful",
+     *      401="Returned when the user have wrong apiKey",
+     *      400="Returned when the user send bad request",
+     *  },
+     *  parameters={
+     *      {"name"="apiKey", "dataType"="string", "required"=true, "description"="your key for API"}
+     *  },
+     *  tags={
+     *      "stable" = "green"
+     *  },
+     *  cache=false,
+     *  stable=true,
+     * )
      */
     public function listAction(Request $request)
     {
@@ -50,6 +69,24 @@ class ApiController extends Controller
 
     /**
      * @Route("/books/add", methods={"POST"}))
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="create new book",
+     *  statusCodes={
+     *      200="Returned when successful",
+     *      401="Returned when the user have wrong apiKey",
+     *      400="Returned when the user send bad request",
+     *  },
+     *  parameters={
+     *      {"name"="apiKey", "dataType"="string", "required"=true, "description"="your key for API"}
+     *  },
+     *  tags={
+     *      "stable" = "green"
+     *  },
+     *  cache=false,
+     *  stable=true,
+     * )
      */
     public function addAction(Request $request)
     {
@@ -92,6 +129,32 @@ class ApiController extends Controller
 
     /**
      * @Route("/books/{id}/edit", methods={"POST"})
+     *
+     * @ApiDoc(
+     *  resource=true,
+     *  description="edit book",
+     *  requirements={
+     *      {
+     *          "name"="id",
+     *          "dataType"="integer",
+     *          "requirement"="\d+",
+     *          "description"="ID of edited book"
+     *      }
+     *  },
+     *  statusCodes={
+     *      200="Returned when successful",
+     *      401="Returned when the user have wrong apiKey",
+     *      400="Returned when the user send bad request",
+     *  },
+     *  parameters={
+     *      {"name"="apiKey", "dataType"="string", "required"=true, "description"="your key for API"}
+     *  },
+     *  tags={
+     *      "stable" = "green"
+     *  },
+     *  cache=false,
+     *  stable=true,
+     * )
      */
     public function editAction(Request $request, Book $book)
     {
